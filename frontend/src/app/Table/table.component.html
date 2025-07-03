@@ -1,0 +1,34 @@
+<div class="filters">
+  <input
+    type="text"
+    placeholder="Filtrar por título"
+    [(ngModel)]="titleFilter"
+    (input)="filterMovies()"
+  />
+  <input
+    type="text"
+    placeholder="Filtrar por año"
+    [(ngModel)]="yearFilter"
+    (input)="filterMovies()"
+  />
+</div>
+<table>
+  <thead>
+    <tr>
+      <th>Uuid</th>
+      <th>Título</th>
+      <th>Año</th>
+      <th>Plot</th>
+    </tr>
+  </thead>
+  <tbody>
+    @for (movie of filteredMovies; track movie.uuid) {
+        <tr>
+        <td>{{ movie.uuid }}</td>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.year }}</td>
+        <td>{{ movie.plot }}</td>
+        </tr>
+    }
+  </tbody>
+</table>
